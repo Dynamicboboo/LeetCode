@@ -14,6 +14,14 @@
 // Related Topics 数组 哈希表 
 // 👍 8968 👎 0
 
+/**
+ *  * 解题思路：
+ *  * 1. Two Sum
+ *  * 题意：返回数组中和为给定数的下标
+ *  * 难度：Easy
+ *  * 分类：Array, HashTable
+ *  * 算法：题目说明了数组中一定有解，且解唯一，所以用哈希表记录已遍历的元素即可
+ */
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
