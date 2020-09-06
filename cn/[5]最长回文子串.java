@@ -65,7 +65,7 @@ class Solution {
             }
         }
         // 4. 返回值
-        return s.substring(begin,begin + maxLen);
+        return s.substring(begin,begin + maxLen);//substring begin起始索引(包括) begin + maxLen结束索引不包括
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
