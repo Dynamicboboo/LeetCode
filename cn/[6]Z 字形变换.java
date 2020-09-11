@@ -32,11 +32,27 @@
 // Related Topics 字符串 
 // 👍 808 👎 0
 
+/**
+ * 解题思路：
+ * https://leetcode-cn.com/problems/zigzag-conversion/solution/zzi-xing-bian-huan-by-jyd/
+ */
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public String convert(String s, int numRows) {
-
+        if(numRows == 1) return s;
+        List<StringBuilder> rows = new ArrayList<StringBuilder>();
+        for(int i = 0; i < numRows; i++) rows.add(new StringBuilder());//构建单元
+        int i = 0, flag = -1;
+        for(char c : s.toCharArray()) {
+            rows.get(i).append(c);
+            if(i == 0 || i == numRows -1) flag = - flag;
+            i += flag;
+        }
+        StringBuilder res = new StringBuilder();
+        for(StringBuilder row : rows) res.append(row);
+        return res.toString();
     }
 }
+
 //leetcode submit region end(Prohibit modification and deletion)
