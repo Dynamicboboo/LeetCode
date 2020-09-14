@@ -27,9 +27,29 @@
  *     ListNode(int x) { val = x; }
  * }
  */
+
+/**
+ * 思路： 先将第一个指针L1 移动n个位置，之后 第一个 和第二个在共同移动 直到L1移动到最后一个元素
+ * 此时L2 位于即将删除元素的前一位（因为L1和L2是从head的前一位开始移动的）
+ */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-
+        ListNode pre = new ListNode(0); //预先指针 ，预先指针的next是head
+        pre.next = head;
+        if (head == null){
+            return null;
+        }
+        ListNode l1 = pre;
+        while(l1 != null && n-->0){
+            l1 = l1.next;
+        }
+        ListNode l2 = pre;
+        while(l1.next != null){
+            l1 = l1.next;
+            l2 = l2.next;
+        }
+        l2.next = l2.next.next;
+        return pre.next;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
