@@ -15,7 +15,12 @@
 // Related Topics 字符串 回溯算法 
 // 👍 919 👎 0
 
-
+/**
+ * 利用队列求解
+ *  例如输入23 对应的 abc def
+ *  先将2中的abc 依次放入队列中 然后先拿出a 与def依次组合 "ad", "ae", "af"
+ *  然后b 然后c
+ */
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<String> letterCombinations(String digits) {
@@ -23,7 +28,6 @@ class Solution {
             return new ArrayList<String>();
         }
         //一个映射表，第二个位置是"abc“,第三个位置是"def"。。。
-        //这里也可以用map，用数组可以更节省点内存
         String[] letter_map = {
                 " ","*","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"
         };
