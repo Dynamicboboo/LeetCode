@@ -47,6 +47,9 @@
 
 
 //leetcode submit region begin(Prohibit modification and deletion)
+
+import java.util.List;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -59,7 +62,30 @@
  */
 class Solution {
     public ListNode mergeKLists(ListNode[] lists) {
-        
+        ListNode ans = null;
+        for (int i = 0 ;i < lists.length; i++){
+            ans = mergeTwoLists(ans,lists[i]);
+        }
+        return ans;
+    }
+    public ListNode mergeTwoLists(ListNode a ,ListNode b){
+        if (a == null | b == null){
+            return a != null ? a : b;
+        }
+        ListNode dummyHead = new ListNode(0);//设置一个空的头节点 方便curr 记录从第一个相加的数据
+        ListNode aPtr = a, bPtr =b,head = dummyHead;
+        while (aPtr != null && bPtr != null) {
+            if (aPtr.val < bPtr.val){
+                head.next = aPtr;
+                aPtr = aPtr.next;
+            }else{
+                head.next = bPtr;
+                bPtr = bPtr.next;
+            }
+            head = head.next;
+        }
+        head.next = (aPtr != null ? aPtr:bPtr);
+        return dummyHead.next;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
