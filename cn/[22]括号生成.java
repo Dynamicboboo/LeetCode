@@ -16,11 +16,34 @@
 // Related Topics 字符串 回溯算法 
 // 👍 1315 👎 0
 
-
+/**
+ *
+ */
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
     public List<String> generateParenthesis(int n) {
+        List<String> ans = new ArrayList<String>();
+        backtrack(ans, "", 0, 0, n);
+        return ans;
+    }
 
+    public void backtrack(List<String> ans, String cur, int left, int right, int max) {
+        // 在递归终止的时候，直接把它添加到结果集即可
+        if (left == max && right == max) {
+            ans.add(cur.toString());
+            return;
+        }
+        //剪枝，
+        if (left < right){
+            return;
+        }
+        if (left < max){
+            backtrack(ans , cur+"(" , left+1 , right ,max);
+        }
+        if (right < max){
+            backtrack(ans , cur+")" , left , right+1 ,max);
+        }
     }
 }
+
 //leetcode submit region end(Prohibit modification and deletion)
