@@ -73,7 +73,7 @@ class Solution {
             result+=c;
         }
         return k?result:-result;
-        
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
