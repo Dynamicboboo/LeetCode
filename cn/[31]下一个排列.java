@@ -11,11 +11,6 @@
 // Related Topics 数组 
 // 👍 678 👎 0
 
-/**
- * 题意：（求下一个比这个数大的数，可能比给的数大的有很多，但只需要求下一个更大的）
- * 例如 1，2，4，7，6，5，3，1  比其大的有 12713456  、7654311，7116543 等等 但12713456 是最接近它且比他大的
- *
- */
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
@@ -49,7 +44,7 @@ class Solution {
     void swap (int[] nums ,int i , int j){
         int temp = nums[i];
         nums[i] = nums[j];
-        nums[j] = temp; 
+        nums[j] = temp;
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
