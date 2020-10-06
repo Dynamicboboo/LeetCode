@@ -34,9 +34,9 @@ class Solution {
         }
         int l = 0 , r = n-1;
         while ( l <= r){
-            int mid = (r+l)/2;
+            int mid = (r-l)/2+l;
             if (nums[mid] == target) return mid;
-            if (nums[0] <= nums[mid]){
+            if (nums[0] <= nums[mid]){//条件满足则 0-mid为有序 否则else  mid ~ n-1为有序 ，查找时一直在有序数组里面查询
                 if (nums[0]<=target && target<nums[mid]){
                     r = mid - 1;
                 }else{
